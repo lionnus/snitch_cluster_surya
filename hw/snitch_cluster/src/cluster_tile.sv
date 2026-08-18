@@ -34,14 +34,17 @@ module cluster_tile
 
   localparam int unsigned HWPECtrlAddrWidth = 32;
   localparam int unsigned HWPECtrlDataWidth = 32;
+  localparam int unsigned HWPECtrlUserWidth = 1;
   typedef logic [HWPECtrlAddrWidth-1:0] addr_hwpe_ctrl_t;
   typedef logic [HWPECtrlDataWidth-1:0] data_hwpe_ctrl_t;
   typedef logic [3:0] strb_hwpe_ctrl_t;
+  typedef logic [HWPECtrlUserWidth-1:0] user_hwpe_ctrl_t;
 
   `AXI_TYPEDEF_ALL(cluster_narrow_out_dw_conv, snitch_cluster_pkg::addr_t,
                    snitch_cluster_pkg::narrow_out_id_t, data_hwpe_ctrl_t, strb_hwpe_ctrl_t,
                    snitch_cluster_pkg::user_narrow_t)
-  `TCDM_TYPEDEF_ALL(hwpectrl, addr_hwpe_ctrl_t, data_hwpe_ctrl_t, strb_hwpe_ctrl_t, logic)
+  `TCDM_TYPEDEF_ALL(hwpectrl, addr_hwpe_ctrl_t, data_hwpe_ctrl_t, strb_hwpe_ctrl_t,
+                    user_hwpe_ctrl_t)
 
   cluster_narrow_out_dw_conv_req_t  cluster_narrow_out_dw_conv_req;
   cluster_narrow_out_dw_conv_req_t  cluster_narrow_out_cut_req;
@@ -143,7 +146,8 @@ module cluster_tile
     .tcdm_rsp_t (hwpectrl_rsp_t),
     .IdWidth    (snitch_cluster_pkg::NarrowIdWidthOut),
     .AddrWidth  (HWPECtrlAddrWidth),
-    .DataWidth  (HWPECtrlDataWidth)
+    .DataWidth  (HWPECtrlDataWidth),
+    .UserWidth  (HWPECtrlUserWidth)
   ) i_axi_to_hwpe_ctrl (
     .clk_i,
     .rst_ni,

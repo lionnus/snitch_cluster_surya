@@ -65,7 +65,8 @@ module snitch_fpu import snitch_pkg::*; #(
     FpFmtMask:    {RVF, RVD, XF16, XF8, XF16ALT, XF8ALT, 1'b0, 1'b0, 1'b0},
     IntFmtMask:   {XFVEC && (XF8 || XF8ALT), XFVEC && (XF16 || XF16ALT), 1'b1, 1'b0},
     MxFpFmtMask:  XFMXDOTP ? 9'b000101111 : '0,
-    MxIntFmtMask: XFMXDOTP ? 4'b1000 : '0
+    MxIntFmtMask: XFMXDOTP ? 4'b1000 : '0,
+    PaceFeatures: '{default: 0}
   };
 
   fpnew_top #(
