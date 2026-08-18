@@ -11,7 +11,7 @@
 #######################
 
 DEBUG        ?= ON  # ON to turn on debugging symbols and wave logging
-CFG_OVERRIDE ?= $(SN_ROOT)/cfg/mxcore_gwaihir.json  # Override default configuration file
+CFG_OVERRIDE ?= $(SN_ROOT)/cfg/surya_gwaihir.json  # Override default configuration file
 TECH         ?=      # [gf12, ihp13] for physical simulation
 VCD_DUMP     ?= 0    # 1 to dump VCD traces
 
@@ -45,7 +45,12 @@ SN_ROOT := $(realpath $(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 include $(SN_ROOT)/make/common.mk
 
 TARGET = cluster_tile
-SN_COMMON_BENDER_FLAGS += -t snitch_cluster_wrapper -t mxcore_hwpe
+export SN_BENDER_DEFINES = -DN_CIM=4 -DCIM_INNER=32 -DCIM_OUTER=8 -DN_ACCUM=32 \
+                           -DOPTIMAL_BW=1 -DCIM_DIGITAL=1 \
+                           -DENABLE_DEPTHWISE=0 -DENABLE_PACE=0 -DENABLE_MX=1 \
+                           -DMX_FP_ADD=1 -DMX_NQ_PARAMS=0 \
+                           -DBANK_BITWIDTH=512 -DMISALIGNED_ACCESSES=0
+SN_COMMON_BENDER_FLAGS += -t snitch_cluster_wrapper $(SN_BENDER_DEFINES)
 
 #################
 # Configuration #

@@ -102,7 +102,7 @@ SN_APPS += $(SN_ROOT)/sw/kernels/misc/kbpcpa
 SN_APPS += $(SN_ROOT)/sw/kernels/misc/box3d1r
 SN_APPS += $(SN_ROOT)/sw/kernels/misc/j3d27pt
 SN_APPS += $(SN_ROOT)/sw/kernels/misc/sort
-SN_APPS += $(SN_ROOT)/sw/kernels/mxcore
+SN_APPS += $(SN_ROOT)/sw/kernels/surya
 endif
 
 # Include Makefile from each app subdirectory
