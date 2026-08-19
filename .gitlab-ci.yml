@@ -96,6 +96,7 @@ snitch-cluster-vcs:
     - make vcs
     - cd test
     - ../util/experiments/run.py run.yaml --simulator vcs -j --run-dir runs/vcs
+    - ../util/experiments/run.py surya.yaml --simulator vcs -j --run-dir runs/vcs
 
 # Questa
 snitch-cluster-vsim:
@@ -105,6 +106,7 @@ snitch-cluster-vsim:
     - cd test
     - ../util/experiments/run.py run.yaml --simulator vsim -j --run-dir runs/vsim
     - ../util/experiments/run.py riscv_tests_isa.yaml --simulator vsim -j --run-dir runs/vsim
+    - ../util/experiments/run.py surya.yaml --simulator vsim -j --run-dir runs/vsim
     # Test convenience Make target
     - cd ..
     - make vsim-run SN_BINARY=$PWD/sw/kernels/blas/axpy/build/axpy.elf \

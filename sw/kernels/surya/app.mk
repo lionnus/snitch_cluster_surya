@@ -7,8 +7,8 @@ SURYA_ROOT ?= $(shell $(SN_BENDER) path surya)
 SURYA_GEN_DIR ?= $($(APP)_BUILD_DIR)/generated
 
 # The suite must match the hardware configuration of SN_BENDER_DEFINES.
-# mx_add.json is the ENABLE_PACE=0, MX_FP_ADD=1, MX_NQ_PARAMS=0 suite.
-SURYA_TEST_JSON ?= $(SURYA_ROOT)/tests/mx_add.json
+# gwaihir.json is the ENABLE_PACE=0, MX_FP_ADD=1 suite.
+SURYA_TEST_JSON ?= $(SURYA_ROOT)/tests/gwaihir.json
 SURYA_TEST_NAME ?= MX_M64_N128_P64_NM2_MXO
 SURYA_SEED ?= 42
 

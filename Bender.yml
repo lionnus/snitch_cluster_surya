@@ -31,7 +31,7 @@ dependencies:
   axi:                { git: https://github.com/colluca/axi.git,                      rev:  06410c36819924e32db2afa428d244dbdbcd5d4e  }
   common_cells:       { git: https://github.com/pulp-platform/common_cells.git,       rev:  snitch                                    }
   FPnew:              { git: https://github.com/pulp-platform/cvfpu.git,              rev:  841b19b9fc0148ee7cbf91c295e801c6bf21a421  }
-  surya:              { git: git@iis-git.ee.ethz.ch:visual-wakeup/surya.git,          rev:  5ab8548357bb7edeb53c210c8da803247b94a023  }
+  surya:              { git: git@iis-git.ee.ethz.ch:visual-wakeup/surya.git,          rev:  756a8b9859d810e522833856f43ea8cae2532582  }
   
 export_include_dirs:
   - hw/reqrsp_interface/include
@@ -210,7 +210,7 @@ sources:
       - hw/snitch_cluster/src/cluster_tile.sv
   - target: all(snitch_cluster_wrapper, gf12, netlist)
     files:
-      - nonfree/gf12/fusion/runs/0/out/15/snitch_cluster_wrapper.v
+      - nonfree/gf12/fusion/runs/0/out/netlist/cluster_tile.v
   - target: all(snitch_cluster_wrapper, any(simulation, verilator))
     include_dirs:
       - hw/generated

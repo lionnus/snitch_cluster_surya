@@ -1,0 +1,11 @@
+# Copyright 2026 ETH Zurich and University of Bologna.
+# Licensed under the Apache License, Version 2.0, see LICENSE for details.
+# SPDX-License-Identifier: Apache-2.0
+
+# The surya kernel needs the HWPE ports of cfg/surya_gwaihir.json, so it stays out
+# of run.yaml, which every cluster configuration runs.
+runs:
+  # The kernel self-checks and returns the mismatch count as the exit code.
+  # The HWPE needs an event-driven simulator, so verilator cannot run it.
+  - elf: ../sw/kernels/surya/build/surya.elf
+    simulators: [vsim, vcs, verilator]

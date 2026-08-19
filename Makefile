@@ -48,7 +48,7 @@ TARGET = cluster_tile
 export SN_BENDER_DEFINES = -DN_CIM=4 -DCIM_INNER=32 -DCIM_OUTER=8 -DN_ACCUM=32 \
                            -DOPTIMAL_BW=1 -DCIM_DIGITAL=1 \
                            -DENABLE_DEPTHWISE=0 -DENABLE_PACE=0 -DENABLE_MX=1 \
-                           -DMX_FP_ADD=1 -DMX_NQ_PARAMS=0 \
+                           -DMX_FP_ADD=1 \
                            -DBANK_BITWIDTH=512 -DMISALIGNED_ACCESSES=0
 SN_COMMON_BENDER_FLAGS += -t snitch_cluster_wrapper $(SN_BENDER_DEFINES)
 
